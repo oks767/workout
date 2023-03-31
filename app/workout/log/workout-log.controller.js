@@ -4,9 +4,10 @@ import { prisma } from '../../prisma.js';
 //@desc POST /api/workouts/log/:workoutId
 //@acces Private
 export const createNewWorkoutLog = asyncHandler(async (req, res) => {
+  const workoutId = +req.params.id;
   const workout = await prisma.workout.findUnique({
     where: {
-      id: +req.params.id,
+      id: workoutId,
     },
     include: {
       exercise: true,
@@ -17,13 +18,13 @@ export const createNewWorkoutLog = asyncHandler(async (req, res) => {
     data: {
       user: {
         connect: {
-          id: req.user.id,
+          id: +req.user.id,
         },
       },
 
       workout: {
         connect: {
-          id: +req.params.id,
+          id: workoutId,
         },
       },
       exerciseLog: {

@@ -1,0 +1,31 @@
+@import '../../scss/variables.scss';
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 560px;
+  padding: 25px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &.otherPage {
+    height: 280px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: $bx-accent;
+    @media (max-width: 320px) {
+      height: 260px !important;
+    }
+  }
+}
+.heading {
+  text-transform: uppercase;
+  color: $white;
+  font-size: 30px;
+  font-weight: bold;
+  @media (max-width: 320px) {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,34 @@
+@import '../../../scss/variables.scss';
+.input {
+  display: block;
+  background-color: #511734;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 15px;
+
+  color: $white;
+  margin: 0 auto;
+  margin-bottom: 38px;
+  margin-top: 38px;
+}
+.wrapperButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  > div {
+    width: 48%;
+    > button {
+      width: 100%;
+    }
+    &:last-child > button {
+      background-color: #20366b;
+      opacity: 0.8;
+      transition: opacity 0.15s ease;
+      &:hover {
+        background-color: #29478c;
+        opacity: 1;
+      }
+    }
+  }
+}

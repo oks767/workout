@@ -11,7 +11,7 @@ export const createWorkout = asyncHandler(async (req, res) => {
     data: {
       name,
       exercise: {
-        connect: exercisesIds.map((id) => ({ id: +id })),
+        connect: exercisesIds?.map((id) => ({ id: +id })),
       },
     },
   });

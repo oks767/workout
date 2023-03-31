@@ -1,8 +1,8 @@
 import asyncHandler from 'express-async-handler';
 import { prisma } from '../../prisma.js';
 
-//@desc Get exerciseLog
-//@desc GET /api/exercises/log/:id
+//@desc Get workoutLog
+//@desc GET /api/workouts/log/:id
 //@acces Private
 export const getWorkoutLog = asyncHandler(async (req, res) => {
   const workoutLog = await prisma.workoutLog.findUnique({
@@ -10,7 +10,11 @@ export const getWorkoutLog = asyncHandler(async (req, res) => {
       id: +req.params.id,
     },
     include: {
-      workout: true,
+      workout: {
+        include: {
+          exercise: true,
+        },
+      },
       exerciseLog: {
         orderBy: {
           id: 'asc',
@@ -24,7 +28,7 @@ export const getWorkoutLog = asyncHandler(async (req, res) => {
 
   if (!workoutLog) {
     res.status(404);
-    throw new Error('Упражнение не найдено');
+    throw new Error('Тренировка не найдено');
   }
 
   res.json({ ...workoutLog });

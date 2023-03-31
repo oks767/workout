@@ -14,14 +14,14 @@ export const getUserProfile = asyncHandler(async (req, res) => {
 
   const minutes = await prisma.exerciseLog.count({
     where: {
-      id: req.user.id,
+      userId: req.user.id,
       isCompleted: true,
     },
   });
   const kgs = await prisma.exerciseTime.aggregate({
     where: {
       ExerciseLog: {
-        userId: user.id,
+        userId: req.user.id,
       },
       isCompleted: true,
     },
@@ -31,7 +31,7 @@ export const getUserProfile = asyncHandler(async (req, res) => {
   });
   const workouts = await prisma.workoutLog.count({
     where: {
-      id: user.id,
+      userId: user.id,
       isCompleted: true,
     },
   });
