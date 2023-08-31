@@ -10,6 +10,8 @@ $accent-04: rgba($accent, 0.4);
   background-color: $accent-04;
   cursor: pointer;
   color: #fff;
+  margin-top: 20px;
+
   &:hover {
     background-color: rgba($accent, 0.7);
   }

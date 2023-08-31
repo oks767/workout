@@ -30,7 +30,7 @@ export const useNewWorkout = () => {
   const onSubmit = (data) => {
     mutate({
       name: data.name,
-      exercisesIds: data.exercisesIds.map((ex) => ex.value),
+      exercisesIds: data.exercisesIds?.map((ex) => ex.value),
     });
   };
 

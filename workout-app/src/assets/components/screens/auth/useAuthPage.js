@@ -7,7 +7,7 @@ import AuthService from '../../../../services/auth.service';
 
 export const useAuthPage = () => {
   const [type, setType] = useState('login');
-  const { isAuth, setIsAuth } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -16,13 +16,17 @@ export const useAuthPage = () => {
   } = useForm({
     mode: 'onChange',
   });
+
+  const { isAuth, setIsAuth } = useAuth();
   const navigate = useNavigate();
+
   useEffect(() => {
     if (isAuth) {
       navigate('/');
     }
   }, [isAuth]);
-  const { mutate } = useMutation(
+
+  const { mutate, isLoading } = useMutation(
     ['auth'],
     ({ email, password }) => AuthService.main(email, password, type),
     {
@@ -36,14 +40,16 @@ export const useAuthPage = () => {
   const onSubmit = (data) => {
     mutate(data);
   };
+
   return useMemo(
     () => ({
       setType,
       register,
       handleSubmit,
       errors,
+      isLoading,
       onSubmit,
     }),
-    [errors]
+    [errors, isLoading]
   );
 };

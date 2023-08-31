@@ -12,45 +12,45 @@ export const routes = [
     path: '/',
 
     component: App,
-    auth: true,
+    isAuth: true,
   },
   {
     name: 'Auth',
     path: '/auth',
 
     component: Auth,
-    auth: false,
+    isAuth: false,
   },
   {
     name: 'new-workout',
     path: '/new-workout',
 
     component: NewWorkout,
-    auth: true,
+    isAuth: true,
   },
   {
     name: 'profile',
     path: '/profile',
 
     component: Profile,
-    auth: true,
+    isAuth: true,
   },
   {
     name: 'new-exercise',
     path: '/new-exercise',
 
     component: Exercise,
-    auth: true,
+    isAuth: true,
   },
   {
     path: '/workout/:id',
     component: Workout,
-    auth: true,
+    isAuth: true,
   },
   {
     path: '/workouts',
     component: ListWorkouts,
-    auth: true,
+    isAuth: true,
   },
   {
     path: '/exercise/:id',

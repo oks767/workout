@@ -16,7 +16,8 @@ body {
     border: 1px solid transparent !important;
     color: $white;
     font-size: 18px;
-    width: 100%;
+    width: 300px;
+    margin: 0 auto;
     &--is-focused {
       border-color: transparent !important;
       box-shadow: 0 0 0 1px rgba($accent, 0.3) !important;

@@ -14,12 +14,11 @@
 }
 .wrapperButtons {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   > div {
-    width: 48%;
     > button {
-      width: 100%;
+      width: 200px;
+      margin-left: 10px;
     }
     &:last-child > button {
       background-color: #20366b;

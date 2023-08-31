@@ -32,9 +32,12 @@ const NewWorkout = () => {
             type='text'
             placeholder='Enter name'
           />
-          <Link to='/new-exercise' className='dark-link'>
-            Add new exercise
-          </Link>
+          <div className={styles.newExercise}>
+            <Link to='/new-exercise' className={styles['dark-link']}>
+              Add new exercise
+            </Link>
+          </div>
+
           <SelectExercises control={control} />
           {/* <Field
             error={errors?.exercises?.message}

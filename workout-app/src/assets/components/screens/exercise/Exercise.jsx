@@ -71,7 +71,7 @@ const Exercise = () => {
             control={control}
             render={({ field: { value, onChange } }) => (
               <div className={styles.images}>
-                {data.map((name) => (
+                {data?.map((name) => (
                   <img
                     key={`ex img ${name}`}
                     src={`${import.meta.env.VITE_SERVER_URL}${getIconPath(
